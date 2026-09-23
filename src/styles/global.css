@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define o max-width customizado de 1140px */
+  --breakpoint-site: 1140px;
+
+  /* Cores */
+  --azul-primaria: #3c7ef9;
+  --azul-secundaria: #0a1662;
+  --azul-destaque: #0e14bf;
+  --preta-neutra: #242731;
+  --base-white: #e7e8ea;
+  --roxo: #6366f1;
+  --ciano: #22d3ee;
+  --amarelo-destaque: #facc15;
+  --branco: #ffffff;
+  --gradient-1: linear-gradient(180deg, #046AD0 60%, #0A1662 100%);
+
+  /* Fontes */
+  /* Substitui a fonte padrão (font-sans) do Tailwind pela Funnel Sans */
+  --font-funnel-sans: 'Funnel Sans', system-ui, sans-serif;
+  --font-funnel-display: 'Funnel Display', system-ui, sans-serif;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Funnel Sans';
+    src: url('/fonts/FunnelSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+  }
+
+  @font-face {
+    font-family: 'Funnel Display';
+    src: url('/fonts/FunnelDisplay-VariableFont_wght.ttf') format('truetype');
+    letter-spacing: 2px;
+    font-weight: 100 900;
+  }
+
+  :root {
+    --azul-primaria: #3c7ef9;
+    --azul-secundaria: #0a1662;
+    --azul-destaque: #0e14bf;
+    --preta-neutra: #242731;
+    --base-white: #e7e8ea;
+    --roxo: #6366f1;
+    --ciano: #22d3ee;
+    --amarelo-destaque: #facc15;
+    --gradient-1: linear-gradient(180deg, #046AD0 60%, #0A1662 100%);
+  }
+
+  body {
+    font-family: var(--font-funnel-sans);
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-family: var(--font-funnel-display);
+    letter-spacing: 2px;
+    font-size: 40px !important;
+  }
+
+  h1 {
+    font-size: 50px !important;
+    letter-spacing: 2px !important;
+  }
+}
+
+/* Adicione no final do seu global.css */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}

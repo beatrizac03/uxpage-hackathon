@@ -1,0 +1,28 @@
+---
+// src/components/sections/Impacto.astro
+import TrilhaCarreira from './TrilhaCarreira.jsx';
+---
+
+<section id="impacto" class="py-16 md:py-24 bg-gradient-to-b from-[#0e2a70] to-[#1e52b2] text-white overflow-hidden">
+  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Coluna da Esquerda: Textos (5 colunas no desktop) -->
+      <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-amber-400 leading-tight">
+          Do aprendizado à primeira oportunidade real
+        </h2>
+
+        <p class="text-base sm:text-lg text-blue-50 leading-relaxed font-sans">
+          Cada apoio financia a estrutura que sustenta esse caminho: mentoria ativa, projetos reais e uma comunidade que aprende fazendo, junta.
+        </p>
+      </div>
+
+      <!-- Coluna da Direita: Trilha Interativa Animada (7 colunas no desktop) -->
+      <div class="lg:col-span-7 flex justify-center items-center">
+        <TrilhaCarreira client:visible />
+      </div>
+
+    </div>
+  </div>
+</section>

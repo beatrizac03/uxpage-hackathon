@@ -1,0 +1,79 @@
+---
+// src/components/sections/Apoie.astro
+import HoverCard from './HoverCard.jsx';
+
+// Lista com os dados para os cards interativos da grid à esquerda
+const apoiadoresData = [
+  {
+    name: "Infraestrutura",
+    username: "soujunior",
+    image: "https://github.com/DivyashriRavichandran.png",
+    bio: "Manutenção de servidores, ferramentas e suporte para os projetos de alunos.",
+    stats: { followers: 1200, following: 100, posts: 15 },
+    socialLinks: { github: "https://github.com" }
+  },
+  {
+    name: "Mentorias Gratuitas",
+    username: "soujunior",
+    image: "https://github.com/DivyashriRavichandran.png",
+    bio: "Sessões semanais com profissionais experientes no mercado de tecnologia.",
+    stats: { followers: 2500, following: 300, posts: 50 },
+    socialLinks: { linkedin: "https://linkedin.com" }
+  },
+  {
+    name: "Projetos Reais",
+    username: "soujunior",
+    image: "https://github.com/DivyashriRavichandran.png",
+    bio: "Vivência prática em times multidisciplinares construindo software real.",
+    stats: { followers: 800, following: 50, posts: 10 },
+    socialLinks: { github: "https://github.com" }
+  },
+  {
+    name: "Comunidade",
+    username: "soujunior",
+    image: "https://github.com/DivyashriRavichandran.png",
+    bio: "Networking, troca de conhecimento e suporte mútuo para carreira tech.",
+    stats: { followers: 5000, following: 400, posts: 120 },
+    socialLinks: { twitter: "https://twitter.com" }
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-blue-600 text-white overflow-hidden">
+  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Coluna da Esquerda: Grid 2x2 com os HoverCards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 justify-items-center">
+        {apoiadoresData.map((item) => (
+          <HoverCard 
+            client:visible 
+            data={item} 
+            className="w-full max-w-xs h-64 sm:h-72" 
+          />
+        ))}
+      </div>
+
+      <!-- Coluna da Direita: Textos de Impacto -->
+      <div class="flex flex-col justify-center space-y-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-amber-300 underline underline-offset-4 decoration-amber-300">
+            IMPACTO
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-amber-400 mt-3 leading-tight">
+            Por que apoiar a SouJunior?
+          </h2>
+        </div>
+
+        <p class="text-base sm:text-lg text-blue-50 leading-relaxed font-sans">
+          A SouJunior transforma aprendizado em experiência prática. Por meio de projetos reais, mentorias e colaboração, cada participante constrói repertório para se aproximar da sua primeira oportunidade no mercado.
+        </p>
+
+        <p class="text-base sm:text-lg text-blue-50 leading-relaxed font-sans">
+          Quando você apoia a SouJunior, contribui para manter essa jornada acessível e fortalecer a estrutura que faz tudo isso acontecer.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

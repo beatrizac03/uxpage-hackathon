@@ -1,0 +1,22 @@
+---
+// src/components/sections/Atuacao.astro
+import AtuacaoMarquee from './AtuacaoMarquee.jsx';
+---
+
+<section id="atuacao" class="py-16 bg-[#081126] relative overflow-hidden">
+  <!-- Efeitos de iluminação de fundo (Glows) -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6 mb-8 text-center sm:text-left">
+    <span class="text-xs font-semibold uppercase tracking-widest text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">
+      Especialidades
+    </span>
+    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-3">
+      Áreas de atuação
+    </h2>
+  </div>
+
+  <!-- Carrosel / Marquee Infinito -->
+  <AtuacaoMarquee client:visible />
+</section>
