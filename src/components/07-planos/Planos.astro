@@ -18,8 +18,8 @@ const planosData = [
   },
   {
     titulo: "Apoiador da Jornada",
-    valorMin: "2,00",
-    valorMax: "4,00",
+    valorMin: "5,00",
+    valorMax: "8,00",
     descricao: "Fortaleça a jornada de quem está começando na tecnologia e receba o Guia iniciante em TI.",
     beneficios: [
       "Guia Iniciante em TI (construído pelo fundador Wouerner Brandão).",
@@ -84,7 +84,11 @@ const planosData = [
               <ul class="space-y-3">
                 {plano.beneficios.map((item) => (
                   <li class="flex items-start gap-2.5 text-xs sm:text-sm font-medium text-slate-200 leading-snug">
-                    <span class="shrink-0 text-emerald-400 font-bold">✅</span>
+                    <span class="shrink-0 text-emerald-400 mt-0.5">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                      </svg>
+                    </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -99,7 +103,7 @@ const planosData = [
             href="https://apoia.se/soujunior" 
             showHeartIcon={true}
             target="_blank"
-            className="mt-5 lg:w-[80%] bg-amber-400 text-slate-950 font-bold hover:bg-amber-300 m-auto transition-colors"
+            className="mt-5 lg:w-[80%] bg-[var(--amarelo-destaque)] text-slate-950 font-bold hover:bg-white m-auto transition-colors"
           />
 
         </div>

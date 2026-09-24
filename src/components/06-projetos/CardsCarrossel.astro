@@ -3,18 +3,18 @@
 
 const cardsData = [
   {
-    main: "Sou Junior",
-    sub: "Desenvolvimento Web",
-    image: "./src/components/06-projetos/soujunior.png",
-  },
-  {
-    main: "Labs",
-    sub: "Inovação & Código",
+    main: "SouJunior Labs",
+    sub: "Focado em projetos práticos em grupo. Funciona via Discord.",
     image: "./src/components/06-projetos/labs.png",
   },
   {
-    main: "Talk",
-    sub: "Mentoria & Projetos",
+    main: "SouJunior",
+    sub: "Site institucional, feito pela comunidade. ",
+    image: "./src/components/06-projetos/soujunior.png",
+  },
+  {
+    main: "SouJunior Talk",
+    sub: "Para aprender inglês em comunidade. Funciona via Discord.",
     image: "./src/components/06-projetos/talk.png",
   },
 ];
@@ -34,7 +34,7 @@ const cardsData = [
             <span class="text-main">{card.main}</span>
             <span class="text-sub">{card.sub}</span>
           </div>
-          <button type="button" class="header-icon-btn">
+          <button type="button" class="header-icon-btn" aria-label="Favoritar">
             <i class="fa-solid fa-heart"></i>
           </button>
         </div>
@@ -46,8 +46,8 @@ const cardsData = [
 
 <style>
   :root {
-    --card-bg-odd: #bfbfbf;
-    --card-bg-even: #f2f2f2;
+    --card-bg: #ffffff; /* Fundo branco base para todos os cartões */
+    --roxo: #1e1b4b; /* Ajuste para o tom de roxo desejado do tema */
 
     /* Aumentado o tamanho base das cartas */
     --scale-level-1: 1.2; 
@@ -88,11 +88,13 @@ const cardsData = [
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    background-color: var(--card-bg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   }
 
   .cards-container .card .header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
   }
 
@@ -101,21 +103,23 @@ const cardsData = [
     font-family: 'Funnel Display', sans-serif;
     font-weight: 700;
     font-size: 1.65rem;
+    color: var(--roxo);
   }
 
   .cards-container .card .header .header-text .text-sub {
     display: block;
     font-family: 'Funnel Sans', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
-    margin-top: 0.2rem;
-    color: #606060;
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    color: #555555;
+    line-height: 1.4;
   }
 
   .cards-container .card .header .header-icon-btn {
     border: none;
     padding: 0;
-    background-color: #a6a6a6;
+    background-color: #f1f1f1;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -142,6 +146,7 @@ const cardsData = [
   .cards-container .card .header .header-icon-btn i {
     position: relative;
     font-size: 1.15rem;
+    color: #666;
     transition: color 0.3s;
   }
 
@@ -163,9 +168,9 @@ const cardsData = [
     flex-grow: 1;
     width: 100%;
     /* Imagens maiores e proporcionais */
-    max-height: 230px;
+    max-height: 210px;
     object-fit: contain;
-    margin-top: 1.8rem;
+    margin-top: 1.2rem;
     pointer-events: none;
   }
 
@@ -181,13 +186,7 @@ const cardsData = [
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
-  }
-
-  .cards-container .card:nth-child(odd) {
-    background-color: var(--card-bg-odd);
-  }
-  .cards-container .card:nth-child(even) {
-    background-color: var(--card-bg-even);
+    z-index: 2;
   }
 
   /* Posicionamento em leque expandido para acomodar os cartões maiores */
@@ -232,7 +231,7 @@ const cardsData = [
   }
 
   .cards-container .card.not-active:before {
-    opacity: 0.4;
+    opacity: 0.25;
     visibility: visible;
   }
 

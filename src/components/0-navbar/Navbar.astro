@@ -12,51 +12,32 @@ const navLinks = [
 ---
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-6">
-  <div class="mx-auto max-w-(--breakpoint-site) flex items-center justify-between gap-4">
+  <div class="mx-auto max-w-(--breakpoint-site) flex items-center justify-between gap-4 sm:gap-8">
     
-    <!-- Pílula Glassmorphism Principal (Logo + Links + Redes) -->
-    <nav id="glass-pill" class="flex-1 flex items-center justify-between px-6 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-black/5 transition-all duration-300">
+    <!-- Pílula Glassmorphism Principal -->
+    <nav id="glass-pill" class="w-full flex items-center justify-between px-6 sm:px-8 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-black/5 transition-all duration-300">
       
       <!-- Logo SouJunior -->
       <a href="https://www.soujunior.tech/" class="flex items-center gap-2.5 shrink-0 group">
-        <Image src="/src/assets/logo-soujunior.svg" alt="Logo SouJunior" width={150} height={50} class="transition-transform duration-300 group-hover:scale-110" />
+        <Image src="/src/assets/logo-soujunior.svg" alt="Logo SouJunior" width={130} height={45} class="w-[120px] sm:w-[150px] h-auto transition-transform duration-300 group-hover:scale-110" />
       </a>
 
-      <!-- Links de Navegação Desktop -->
-      <div class="hidden md:flex items-center gap-8">
+      <!-- Links de Navegação Desktop (Centralizados e com maior espaçamento) -->
+      <div class="hidden md:flex items-center justify-center flex-1 px-8 gap-12">
         {navLinks.map((item) => (
           <a
             href={item.url}
-            class="text-base font-medium text-white/90 hover:text-white hover:scale-105 transition-all duration-200 lowercase tracking-wide"
+            class="text-lg font-semibold text-white/90 hover:text-white hover:scale-105 transition-all duration-200 lowercase tracking-wide"
           > 
             {item.texto}
           </a>
         ))}
       </div>
 
-      <!-- Redes Sociais Desktop -->
-      <div class="hidden lg:flex items-center gap-4 text-white/80 border-l border-white/20 pl-6 ml-2">
-        <a href="https://github.com/SouJunior" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-white transition-colors">
-          <svg class="w-10 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/company/soujunior/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-white transition-colors">
-          <svg class="w-10 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 1.62 1.62 1.62 1.62 0 0 0-1.62-1.62z"/>
-          </svg>
-        </a>
-        <a href="https://discord.com/invite/soujunior-community-759176734460346423" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-white transition-colors">
-          <svg class="w-10 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-          </svg>
-        </a>
-      </div>
-
       <!-- Botão Hambúrguer para Mobile -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden text-white p-1 rounded-lg focus:outline-none"
+        class="md:hidden text-white p-1 rounded-lg focus:outline-none shrink-0"
         aria-label="Abrir menu"
       >
         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,14 +50,16 @@ const navLinks = [
 
     </nav>
 
-    <!-- Botão Apoiador Destacado (Desktop) -->
-    <ButtonCTA 
-      client:visible 
-      text="APOIAR" 
-      href="https://apoia.se/soujunior" 
-      showHeartIcon={true}
-      target="_blank"
-    />
+    <!-- Botão Apoiador Destacado (Apenas Desktop na Navbar - com gap maior) -->
+    <div id="desktop-cta" class="hidden md:block shrink-0 ml-4 lg:ml-6">
+      <ButtonCTA 
+        client:visible 
+        text="APOIAR" 
+        href="https://apoia.se/soujunior" 
+        showHeartIcon={true}
+        target="_blank"
+      />
+    </div>
 
   </div>
 
@@ -94,20 +77,32 @@ const navLinks = [
       </a>
     ))}
 
-    <a
-      href="#planos"
-      class="mobile-link mt-2 inline-flex items-center justify-center gap-2 bg-amber-400 text-slate-950 font-bold text-sm px-6 py-3 rounded-2xl shadow-md"
-    >
-      <span>APOIAR</span>
-      <svg class="w-4 h-4 fill-blue-700" viewBox="0 0 24 24">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      </svg>
-    </a>
+    <div class="mt-2 flex justify-center">
+      <ButtonCTA 
+        client:visible 
+        text="APOIAR" 
+        href="https://apoia.se/soujunior" 
+        showHeartIcon={true}
+        target="_blank"
+      />
+    </div>
   </div>
 </header>
 
+<!-- Botão CTA Flutuante Fixo instanciado com o componente <ButtonCTA> -->
+<div id="floating-cta" class="fixed bottom-6 right-6 z-40 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+  <div class="pointer-events-auto shadow-2xl rounded-full">
+    <ButtonCTA 
+      client:visible 
+      text="APOIAR" 
+      href="https://apoia.se/soujunior" 
+      showHeartIcon={true}
+      target="_blank"
+    />
+  </div>
+</div>
+
 <script>
-  // Dynamic Scroll Effects & Mobile Toggle Logic
   const header = document.getElementById('main-header');
   const glassPill = document.getElementById('glass-pill');
   const menuBtn = document.getElementById('mobile-menu-btn');
@@ -115,10 +110,13 @@ const navLinks = [
   const hamburgerIcon = document.getElementById('hamburger-icon');
   const closeIcon = document.getElementById('close-icon');
   const mobileLinks = document.querySelectorAll('.mobile-link');
+  const floatingCta = document.getElementById('floating-cta');
+  const planosSection = document.getElementById('planos');
 
-  // Efeito ao scrollar: escurece e reduz o padding da barra
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 40) {
       header?.classList.add('py-2');
       header?.classList.remove('py-4');
       glassPill?.classList.add('bg-slate-950/60', 'border-white/30', 'shadow-xl');
@@ -129,9 +127,22 @@ const navLinks = [
       glassPill?.classList.add('bg-white/10');
       glassPill?.classList.remove('bg-slate-950/60', 'border-white/30', 'shadow-xl');
     }
+
+    let hideNearPlanos = false;
+    if (planosSection) {
+      const rect = planosSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        hideNearPlanos = true;
+      }
+    }
+
+    if (scrollY > 300 && !hideNearPlanos) {
+      floatingCta?.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    } else {
+      floatingCta?.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }
   });
 
-  // Toggle do Menu Mobile
   menuBtn?.addEventListener('click', () => {
     const isOpen = !mobileMenu?.classList.contains('hidden');
 
@@ -147,7 +158,6 @@ const navLinks = [
     }
   });
 
-  // Fecha o menu ao clicar em qualquer link
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');

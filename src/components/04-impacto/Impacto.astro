@@ -6,7 +6,7 @@ import Scanner from '../common/Scanner.jsx';
 
 <section id="impacto" class="py-24 lg:py-32 text-slate-900 overflow-hidden relative min-h-[85vh] flex items-center bg-slate-50">
   
-  {/* Fundo Scanner com maior visibilidade e opacidade ajustada para o fundo claro */}
+  {/* Fundo Scanner */}
   <div class="absolute inset-0 z-0 w-full h-full opacity-65 pointer-events-none">
     <Scanner
       client:load
@@ -43,9 +43,9 @@ import Scanner from '../common/Scanner.jsx';
   <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6 relative z-10 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      {/* Coluna da Esquerda: Textos (5 colunas) */}
+      {/* Coluna da Esquerda: Textos */}
       <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
-        <h2 class="text-3xl sm:text-5xl font-display font-bold text-blue-950 leading-tight">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-blue-950 leading-tight text-balance">
           Do aprendizado à primeira oportunidade real
         </h2>
 
@@ -54,9 +54,9 @@ import Scanner from '../common/Scanner.jsx';
         </p>
       </div>
 
-      {/* Coluna da Direita: Trilha Interativa (7 colunas) */}
-      <div class="lg:col-span-7 flex justify-center items-center w-full overflow-visible py-4">
-        <div class="w-full max-w-[600px]">
+      {/* Coluna da Direita: Trilha Interativa sem overflow estourado */}
+      <div class="lg:col-span-7 flex justify-center items-center w-full py-4">
+        <div class="w-full max-w-[600px] px-2">
           <TrilhaCarreira client:visible />
         </div>
       </div>

@@ -1,68 +1,49 @@
 ---
-// src/components/sections/Apoie.astro
-import HoverCard from './HoverCard.jsx';
+// src/components/sections/Causa.astro
+import ApoioGridMobile from './ApoioGridMobile.jsx';
 import Tag from '../common/Tag.astro';
 
-// Lista com os dados para os cards interativos da grid à esquerda
 const apoiadoresData = [
   {
-    name: "Infraestrutura",
-    username: "soujunior",
-    image: "https://github.com/DivyashriRavichandran.png",
-    bio: "Manutenção de servidores, ferramentas e suporte para os projetos de alunos.",
-    stats: { followers: 1200, following: 100, posts: 15 },
-    socialLinks: { github: "https://github.com" }
+    title: "infraestrutura",
+    image: "./src/components/03-causa/infraestrutura.png",
+    description: "Manutenção de servidores, ferramentas e suporte para os projetos de alunos."
   },
   {
-    name: "Mentorias Gratuitas",
-    username: "soujunior",
-    image: "https://github.com/DivyashriRavichandran.png",
-    bio: "Sessões semanais com profissionais experientes no mercado de tecnologia.",
-    stats: { followers: 2500, following: 300, posts: 50 },
-    socialLinks: { linkedin: "https://linkedin.com" }
+    title: "mentorias gratuitas",
+    image: "./src/components/03-causa/mentorias.jpg",
+    description: "Sessões online com profissionais experientes no mercado de tecnologia."
   },
   {
-    name: "Projetos Reais",
-    username: "soujunior",
-    image: "https://github.com/DivyashriRavichandran.png",
-    bio: "Vivência prática em times multidisciplinares construindo software real.",
-    stats: { followers: 800, following: 50, posts: 10 },
-    socialLinks: { github: "https://github.com" }
+    title: "projetos reais",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop",
+    description: "Vivência prática em times multidisciplinares construindo software real."
   },
   {
-    name: "Comunidade",
-    username: "soujunior",
-    image: "https://github.com/DivyashriRavichandran.png",
-    bio: "Networking, troca de conhecimento e suporte mútuo para carreira tech.",
-    stats: { followers: 5000, following: 400, posts: 120 },
-    socialLinks: { twitter: "https://twitter.com" }
+    title: "comunidade",
+    image: "./src/components/03-causa/comunidade.svg",
+    description: "Networking, troca de conhecimento e suporte mútuo para carreira tech."
   }
 ];
 ---
 
-<section id="causa" class="pt-[200px] pb-[200px] bg-[var(--azul-secundaria)] bg-(image:--gradient-2) text-white overflow-hidden">
+<section id="causa" class="relative z-10 pt-[480px] sm:pt-[520px] lg:pt-[200px] pb-[140px] lg:pb-[200px] bg-[var(--azul-secundaria)] bg-(image:--gradient-2) text-white overflow-hidden">
   <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
-      <!-- Coluna da Esquerda: Grid 2x2 com os HoverCards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 justify-items-center">
-        {apoiadoresData.map((item) => (
-          <HoverCard 
-            client:visible 
-            data={item} 
-            className="w-full max-w-xs h-64 sm:h-72" 
-          />
-        ))}
+      <!-- Coluna da Esquerda: Grid Espalhada no Desktop / Carrossel no Mobile -->
+      <div class="w-full flex justify-center">
+        <ApoioGridMobile client:visible apoiadoresData={apoiadoresData} />
       </div>
 
-      <!-- Coluna da Direita: Textos de Impacto -->
-      <div class="flex flex-col justify-center space-y-6">
+      <!-- Coluna da Direita: Textos -->
+      <div class="flex flex-col justify-center space-y-6 text-center lg:text-left">
         <div>
           <Tag 
             text="CAUSA" 
-            class="bg-[var(--azul-primaria)] text-[var(--branco)]" 
-            />
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[var(--amarelo-destaque)]   mt-3 leading-tight">
+            class="bg-[var(--azul-primaria)] text-[var(--branco)] inline-block" 
+          />
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[var(--amarelo-destaque)] mt-3 leading-tight">
             Por que apoiar a SouJunior?
           </h2>
         </div>
