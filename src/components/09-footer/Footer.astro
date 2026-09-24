@@ -1,6 +1,8 @@
 ---
 // src/components/sections/Footer.astro
 
+import { Image } from 'astro:assets';
+
 const linksNavegacao = [
   { texto: "Início", url: "#hero" },
   { texto: "Sobre Nós", url: "#impacto" },
@@ -9,11 +11,11 @@ const linksNavegacao = [
 ];
 
 const redesSociais = [
-  { nome: "GitHub", url: "https://github.com/soujunior", icon: "github" },
+  { nome: "GitHub", url: "https://github.com/SouJunior", icon: "github" },
   { nome: "LinkedIn", url: "https://linkedin.com/company/soujunior", icon: "linkedin" },
-  { nome: "Discord", url: "https://discord.gg/soujunior", icon: "discord" },
-  { nome: "Instagram", url: "https://instagram.com/soujunior", icon: "instagram" },
-  { nome: "YouTube", url: "https://youtube.com/soujunior", icon: "youtube" },
+  { nome: "Discord", url: "https://discord.com/invite/soujunior-community-759176734460346423", icon: "discord" },
+  { nome: "Instagram", url: "https://instagram.com/soujunior.tech", icon: "instagram" },
+  { nome: "YouTube", url: "https://youtube.com/@soujuniortech", icon: "youtube" },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -24,21 +26,13 @@ const currentYear = new Date().getFullYear();
     
     <!-- 1. Coluna da Esquerda: Logótipo SouJunior -->
     <div class="flex items-center gap-3">
-      <!-- Ícone/Grelha do Logo -->
-      <div class="grid grid-cols-3 gap-1 w-8 h-8 shrink-0">
-        <div class="bg-blue-400 rounded-sm"></div>
-        <div class="bg-blue-300 rounded-sm"></div>
-        <div class="bg-blue-200 rounded-sm"></div>
-        <div class="bg-blue-300 rounded-sm"></div>
-        <div class="bg-white rounded-sm"></div>
-        <div class="bg-blue-300 rounded-sm"></div>
-        <div class="bg-blue-200 rounded-sm"></div>
-        <div class="bg-blue-300 rounded-sm"></div>
-        <div class="border border-white/40 rounded-sm"></div>
-      </div>
-      <span class="text-2xl font-bold font-display tracking-tight text-white">
-        Sou<span class="text-blue-300">Junior</span>
-      </span>
+      <Image
+        src="/src/assets/logo-soujunior.svg"
+        alt="Logo SouJunior"
+        width={250}
+        height={200}
+        class=""
+      />
     </div>
 
     <!-- 2. Coluna do Centro: Links / Textos de Navegação -->

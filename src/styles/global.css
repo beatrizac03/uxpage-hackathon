@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
 @theme {
-  /* Define o max-width customizado de 1140px */
-  --breakpoint-site: 1140px;
+  /* Define o max-width customizado de 1200px */
+  --breakpoint-site: 1200px;
 
   /* Cores */
   --azul-primaria: #3c7ef9;
@@ -14,7 +18,8 @@
   --ciano: #22d3ee;
   --amarelo-destaque: #facc15;
   --branco: #ffffff;
-  --gradient-1: linear-gradient(180deg, #046AD0 60%, #0A1662 100%);
+  --gradient-1: linear-gradient(180deg, #046ad099 0%, #0a1662 100%);
+  --gradient-2: linear-gradient(0deg, #046ad099 0%, #0a1662 100%);
 
   /* Fontes */
   /* Substitui a fonte padrão (font-sans) do Tailwind pela Funnel Sans */
@@ -41,11 +46,13 @@
     --azul-secundaria: #0a1662;
     --azul-destaque: #0e14bf;
     --preta-neutra: #242731;
+    
     --base-white: #e7e8ea;
     --roxo: #6366f1;
     --ciano: #22d3ee;
     --amarelo-destaque: #facc15;
-    --gradient-1: linear-gradient(180deg, #046AD0 60%, #0A1662 100%);
+    --gradient-1: linear-gradient(180deg, #046ad099 0%, #0a1662 100%);
+    --gradient-cta: linear-gradient(0deg, #FFFFFF 0%, #FACC15 100%);
   }
 
   body {
@@ -56,12 +63,13 @@
   h2 {
     font-family: var(--font-funnel-display);
     letter-spacing: 2px;
-    font-size: 40px !important;
+    /* font-size: 40px !important; */
   }
 
   h1 {
-    font-size: 50px !important;
+    /* font-size: 50px !important; */
     letter-spacing: 2px !important;
+    line-height: 100% !important;
   }
 }
 
@@ -73,8 +81,4 @@
   100% {
     transform: translateX(-50%);
   }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
 }

@@ -1,43 +1,90 @@
 ---
 // src/components/01-hero/Hero.astro
-import HeroReact from './Hero.jsx';
 import heroAvatar from './hero_avatar.gif';
 import { Image } from 'astro:assets';
+import ButtonCTA from '../common/ButtonCTA.jsx';
 ---
 
-<!-- Renderiza o componente React -->
-<!-- <HeroReact /> -->
-<section class="py-16 md:py-24 bg-(image:--gradient-1) min-h-[80vh]" id="hero">
-  <!-- Contêiner centralizado limitando em 1140px -->
-  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<section class="py-16 md:py-24 bg-(image:--gradient-1) max-md:pt-[110px] min-h-[90vh] overflow-hidden flex items-center relative" id="hero">
+  <!-- Contêiner centralizado -->
+  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       
       <!-- Lado Esquerdo: Texto -->
-      <div class="flex flex-col gap-6">
-        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-(--amarelo-destaque) font-funnel-display">
-          Você transforma oportunidade em experiência real
-        </h1>
+      <div class="flex flex-col gap-6 z-10">
+        <h1 class="text-[40px] md:text-[60px] font-bold tracking-tight text-(--amarelo-destaque) font-funnel-display leading-tight">
+        Você transforma oportunidade em experiência real
+      </h1>
         <p class="text-lg text-(--branco)">
           Existimos para impulsionar a carreira de diversos profissionais iniciantes em tecnologia. Faça parte dessa transformação com doações a partir de R$ 2,00. 
         </p>
-        <div class="flex gap-4">
-          <a href="#comecar" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
-            Começar agora
-          </a>
-        </div>
+        
+        <!-- Botão Apoiador Destacado (Desktop) -->
+        <ButtonCTA 
+          client:visible 
+          text="APOIAR A PARTIR DE R$2" 
+          href="https://apoia.se/soujunior" 
+          showHeartIcon={true}
+          target="_blank"
+        />
+
       </div>
 
-      <!-- Lado Direito: Imagem/Mídia -->
-      <div class="flex justify-center h-150">
-        <div class="w-full rounded-2xl flex items-center justify-center h-full-">
+      <!-- Lado Direito: Container com o bichinho ampliado -->
+      <div class="flex justify-center items-center min-h-[450px] sm:min-h-[550px] lg:min-h-[600px] relative w-full">
+        <div class="relative w-full max-w-[650px] flex items-center justify-center">
+          
+          <!-- Forma Amarela (500x500 e border-radius de 200px no Desktop, sem blur) -->
+          <div 
+            id="hero-yellow-shape" 
+            class="absolute w-[320px] h-[320px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] rounded-[120px] sm:rounded-[160px] lg:rounded-[200px] bg-(--amarelo-destaque) opacity-90 transition-transform duration-75 ease-out will-change-transform z-0 pointer-events-none"
+          ></div>
+
+          <!-- GIF / Avatar Ampliado (Sem cortes) -->
           <Image 
             src={heroAvatar} 
-            alt="Descrição da imagem do Hero"
-            class="h-150 rounded-xl shadow-lg object-cover"
+            alt="Ilustração Hero SouJunior"
+            class="w-full h-auto max-h-[650px] object-contain relative z-10 drop-shadow-2xl scale-110"
           />
+          
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+  // Animação de expansão da forma amarela até ao final da dobra
+  const heroSection = document.getElementById('hero');
+  const yellowShape = document.getElementById('hero-yellow-shape');
+
+  if (heroSection && yellowShape) {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const rect = heroSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Calcula a percentagem percorrida do scroll dentro da secção Hero
+      if (rect.bottom >= 0 && rect.top <= windowHeight) {
+        const scrollProgress = Math.min(1, Math.max(0, -rect.top / (rect.height - windowHeight * 0.3)));
+        
+        // Aumenta a escala até 1.8x no final da dobra
+        const scale = 1 + scrollProgress * 0.8; 
+        const rotate = scrollProgress * 12;
+
+        yellowShape.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+      }
+
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
