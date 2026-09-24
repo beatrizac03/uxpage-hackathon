@@ -1,28 +1,67 @@
 ---
 // src/components/sections/Impacto.astro
 import TrilhaCarreira from './TrilhaCarreira.jsx';
+import Scanner from '../common/Scanner.jsx';
 ---
 
-<section id="impacto" class="py-16 md:py-24 bg-gradient-to-b from-[#0e2a70] to-[#1e52b2] text-white overflow-hidden">
-  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<section id="impacto" class="py-24 lg:py-32 text-slate-900 overflow-hidden relative min-h-[85vh] flex items-center bg-slate-50">
+  
+  {/* Fundo Scanner com maior visibilidade e opacidade ajustada para o fundo claro */}
+  <div class="absolute inset-0 z-0 w-full h-full opacity-65 pointer-events-none">
+    <Scanner
+      client:load
+      color1="#3B82F6"
+      color2="#6366F1"
+      color3="#06B6D4"
+      speed={0.5}
+      sweepSpeed={0.3}
+      sweepWidth={2.2}
+      sweepFalloff={5}
+      scale={1.6}
+      frequency={2.5}
+      ripple={0.4}
+      bandDensity={12}
+      lineSharpness={6}
+      glow={0.4}
+      scanDirection="vertical"
+      colorSpread={0.8}
+      brightness={1.3}
+      contrast={1.2}
+      softness={1.5}
+      vignette={0.2}
+      scanline
+      grain
+      grainIntensity={0.02}
+      opacity={0.85}
+      mouseInteraction
+      mouseRadius={0.6}
+      mouseStrength={0.6}
+    />
+  </div>
+
+  {/* Conteúdo Principal */}
+  <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <!-- Coluna da Esquerda: Textos (5 colunas no desktop) -->
+      {/* Coluna da Esquerda: Textos (5 colunas) */}
       <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-amber-400 leading-tight">
+        <h2 class="text-3xl sm:text-5xl font-display font-bold text-blue-950 leading-tight">
           Do aprendizado à primeira oportunidade real
         </h2>
 
-        <p class="text-base sm:text-lg text-blue-50 leading-relaxed font-sans">
+        <p class="text-base sm:text-lg text-slate-700 leading-relaxed font-sans">
           Cada apoio financia a estrutura que sustenta esse caminho: mentoria ativa, projetos reais e uma comunidade que aprende fazendo, junta.
         </p>
       </div>
 
-      <!-- Coluna da Direita: Trilha Interativa Animada (7 colunas no desktop) -->
-      <div class="lg:col-span-7 flex justify-center items-center">
-        <TrilhaCarreira client:visible />
+      {/* Coluna da Direita: Trilha Interativa (7 colunas) */}
+      <div class="lg:col-span-7 flex justify-center items-center w-full overflow-visible py-4">
+        <div class="w-full max-w-[600px]">
+          <TrilhaCarreira client:visible />
+        </div>
       </div>
 
     </div>
   </div>
+
 </section>

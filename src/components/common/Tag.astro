@@ -1,0 +1,18 @@
+---
+// src/components/common/Tag.astro
+const { text = 'TEXT / TAG', class: className = '' } = Astro.props;
+---
+
+<span class={`inline-flex flex-col relative font-bold text-sm tracking-wide pb-1 bg-transparent ${className}`}>
+  <slot>{text}</slot>
+  <!-- Sublinhado com largura menor (ex: w-2/3) e colado -->
+  <span class="absolute bottom-0 left-0 w-2/3 h-[2px] bg-current cut-underline"></span>
+</span>
+
+<style>
+  .cut-underline {
+    background-image: linear-gradient(to right, currentColor 70%, transparent 30%);
+    background-size: 6px 2px;
+    background-repeat: repeat-x;
+  }
+</style>

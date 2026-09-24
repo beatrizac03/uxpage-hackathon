@@ -1,0 +1,304 @@
+---
+// src/components/CardsCarrossel.astro
+
+const cardsData = [
+  {
+    main: "Sou Junior",
+    sub: "Desenvolvimento Web",
+    image: "./src/components/06-projetos/soujunior.png",
+  },
+  {
+    main: "Labs",
+    sub: "Inovação & Código",
+    image: "./src/components/06-projetos/labs.png",
+  },
+  {
+    main: "Talk",
+    sub: "Mentoria & Projetos",
+    image: "./src/components/06-projetos/talk.png",
+  },
+];
+---
+
+<!-- Importação das fontes Funnel Display e Funnel Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;600;700&family=Funnel+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<section class="cards-section py-12 md:py-20 w-full flex justify-center items-center">
+  <div class="cards-container">
+    {cardsData.map((card) => (
+      <div class="card">
+        <div class="header">
+          <div class="header-text">
+            <span class="text-main">{card.main}</span>
+            <span class="text-sub">{card.sub}</span>
+          </div>
+          <button type="button" class="header-icon-btn">
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        <img class="avatar-img" src={card.image} alt={card.main} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  :root {
+    --card-bg-odd: #bfbfbf;
+    --card-bg-even: #f2f2f2;
+
+    /* Aumentado o tamanho base das cartas */
+    --scale-level-1: 1.2; 
+    --scale-level-2: 0.98; 
+
+    --active-scale: 1.35;
+    --active-position-y: -2rem;
+
+    --not-active-scale-offset: 0.1;
+  }
+
+  .cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 520px;
+  }
+
+  .cards-container .card {
+    display: flex;
+    flex-direction: column;
+    /* Cartões maiores no desktop (largura aumentada para 330px) */
+    width: 330px;
+    padding: 2rem 2rem 0 2rem;
+    border-radius: 2.2vw;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cards-container .card .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cards-container .card .header .header-text .text-main {
+    display: block;
+    font-family: 'Funnel Display', sans-serif;
+    font-weight: 700;
+    font-size: 1.65rem;
+  }
+
+  .cards-container .card .header .header-text .text-sub {
+    display: block;
+    font-family: 'Funnel Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    color: #606060;
+  }
+
+  .cards-container .card .header .header-icon-btn {
+    border: none;
+    padding: 0;
+    background-color: #a6a6a6;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    outline: 1px dashed transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s, outline 0.3s;
+  }
+
+  .cards-container .card .header .header-icon-btn:before {
+    content: "";
+    position: absolute;
+    background-color: #ffb6c1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s;
+  }
+
+  .cards-container .card .header .header-icon-btn i {
+    position: relative;
+    font-size: 1.15rem;
+    transition: color 0.3s;
+  }
+
+  .cards-container .card .header .header-icon-btn:hover:before {
+    transform: scale(1);
+  }
+
+  .cards-container .card .header .header-icon-btn:hover i {
+    color: #ff1493;
+  }
+
+  .cards-container .card .header .header-icon-btn:active {
+    transform: translateY(2px);
+    outline-color: #ff69b4;
+  }
+
+  .cards-container .card .avatar-img {
+    align-self: center;
+    flex-grow: 1;
+    width: 100%;
+    /* Imagens maiores e proporcionais */
+    max-height: 230px;
+    object-fit: contain;
+    margin-top: 1.8rem;
+    pointer-events: none;
+  }
+
+  .cards-container .card:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    left: 0;
+    top: 0;
+    border-radius: 2.2vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+
+  .cards-container .card:nth-child(odd) {
+    background-color: var(--card-bg-odd);
+  }
+  .cards-container .card:nth-child(even) {
+    background-color: var(--card-bg-even);
+  }
+
+  /* Posicionamento em leque expandido para acomodar os cartões maiores */
+
+  /* 1º Cartão (Esquerda) */
+  .cards-container .card:nth-child(1) {
+    transform: scale(var(--scale-level-2)) rotate(-15deg) translateX(-11.5rem) translateY(1.5rem);
+    z-index: 5;
+  }
+  .cards-container .card:nth-child(1).active {
+    transform: scale(var(--active-scale)) rotate(0deg) translateX(0) translateY(var(--active-position-y));
+    z-index: 20;
+  }
+  .cards-container .card:nth-child(1).not-active {
+    transform: scale(calc(var(--scale-level-2) - var(--not-active-scale-offset))) rotate(-15deg) translateX(-11.5rem) translateY(1.5rem);
+  }
+
+  /* 2º Cartão (Centro - Foco Principal) */
+  .cards-container .card:nth-child(2) {
+    transform: scale(var(--scale-level-1)) rotate(0deg) translateX(0) translateY(0);
+    z-index: 10;
+  }
+  .cards-container .card:nth-child(2).active {
+    transform: scale(var(--active-scale)) rotate(0deg) translateX(0) translateY(var(--active-position-y));
+    z-index: 20;
+  }
+  .cards-container .card:nth-child(2).not-active {
+    transform: scale(calc(var(--scale-level-1) - var(--not-active-scale-offset))) rotate(0deg) translateX(0) translateY(0);
+  }
+
+  /* 3º Cartão (Direita) */
+  .cards-container .card:nth-child(3) {
+    transform: scale(var(--scale-level-2)) rotate(15deg) translateX(11.5rem) translateY(1.5rem);
+    z-index: 5;
+  }
+  .cards-container .card:nth-child(3).active {
+    transform: scale(var(--active-scale)) rotate(0deg) translateX(0) translateY(var(--active-position-y));
+    z-index: 20;
+  }
+  .cards-container .card:nth-child(3).not-active {
+    transform: scale(calc(var(--scale-level-2) - var(--not-active-scale-offset))) rotate(15deg) translateX(11.5rem) translateY(1.5rem);
+  }
+
+  .cards-container .card.not-active:before {
+    opacity: 0.4;
+    visibility: visible;
+  }
+
+  /* Responsividade para ecrãs menores */
+  @media (max-width: 768px) {
+    .cards-container {
+      max-width: 100%;
+      min-height: 400px;
+    }
+    .cards-container .card {
+      width: 260px;
+      padding: 1.2rem;
+    }
+    .cards-container .card:nth-child(1) {
+      transform: scale(0.85) rotate(-12deg) translateX(-5.5rem) translateY(1rem);
+    }
+    .cards-container .card:nth-child(3) {
+      transform: scale(0.85) rotate(12deg) translateX(5.5rem) translateY(1rem);
+    }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll(".cards-container .card");
+
+  cards.forEach((card) => {
+    // Desktop: Mouse hover
+    card.addEventListener("mouseenter", () => {
+      cards.forEach((c) => {
+        if (c == card) c.classList.add("active");
+        else c.classList.add("not-active");
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      cards.forEach((c) => {
+        c.classList.remove("active", "not-active");
+      });
+    });
+
+    // Mobile: Touch para alternar o estado do cartão
+    card.addEventListener("touchstart", () => {
+      cards.forEach((c) => {
+        if (c == card) {
+          if (c.classList.contains("active")) {
+            c.classList.remove("active");
+            cards.forEach((other) => other.classList.remove("not-active"));
+          } else {
+            c.classList.add("active");
+            c.classList.remove("not-active");
+          }
+        } else {
+          c.classList.add("not-active");
+          c.classList.remove("active");
+        }
+      });
+    }, { passive: true });
+  });
+
+  // Clicar fora limpa os estados ativos
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest(".card")) {
+      cards.forEach((c) => {
+        c.classList.remove("active", "not-active");
+      });
+    }
+  });
+</script>

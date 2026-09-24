@@ -1,3 +1,4 @@
+// src/components/sections/TrilhaCarreira.jsx
 import { motion } from 'framer-motion';
 
 export default function TrilhaCarreira() {
@@ -6,9 +7,9 @@ export default function TrilhaCarreira() {
       id: 'junior',
       nivel: 'Júnior',
       descricao: 'Comece na prática.',
-      cor: 'bg-blue-600 border-blue-400 shadow-blue-500/50',
-      corPulso: 'bg-blue-500',
-      posicaoText: 'bottom-full mb-3 left-0',
+      cor: 'bg-cyan-500 border-white shadow-[0_0_20px_rgba(6,182,212,0.6)]',
+      corPulso: 'bg-cyan-400',
+      posicaoText: 'top-full mt-4 left-1/2 -translate-x-1/2 text-center',
       x: 100,
       y: 220,
     },
@@ -16,9 +17,9 @@ export default function TrilhaCarreira() {
       id: 'pleno',
       nivel: 'Pleno',
       descricao: 'Ganhe experiência.',
-      cor: 'bg-emerald-600 border-emerald-400 shadow-emerald-500/50',
-      corPulso: 'bg-emerald-500',
-      posicaoText: 'top-full mt-3 left-1/2 -translate-x-1/2',
+      cor: 'bg-emerald-500 border-white shadow-[0_0_20px_rgba(16,185,129,0.6)]',
+      corPulso: 'bg-emerald-400',
+      posicaoText: 'top-full mt-4 left-1/2 -translate-x-1/2 text-center',
       x: 350,
       y: 150,
     },
@@ -26,17 +27,18 @@ export default function TrilhaCarreira() {
       id: 'senior',
       nivel: 'Sênior',
       descricao: 'Lidere e transforme.',
-      cor: 'bg-orange-500 border-orange-300 shadow-orange-500/50',
-      corPulso: 'bg-orange-400',
-      posicaoText: 'bottom-full mb-3 right-0 text-right',
+      cor: 'bg-amber-500 border-white shadow-[0_0_25px_rgba(245,158,11,0.7)]',
+      corPulso: 'bg-amber-400',
+      posicaoText: 'top-full mt-4 left-1/2 -translate-x-1/2 text-center',
       x: 600,
       y: 50,
+      isAlvo: true,
     },
   ];
 
   return (
-    <div className="relative w-full max-w-[700px] h-[280px] flex items-center justify-center mx-auto">
-      {/* SVG com a linha curva pontilhada em formato 'S' */}
+    <div className="relative w-full max-w-[700px] h-[320px] flex items-center justify-center mx-auto pt-6">
+      {/* SVG com a linha curva pontilhada em formato 'S' visível no fundo claro */}
       <svg
         viewBox="0 0 700 280"
         className="absolute inset-0 w-full h-full overflow-visible"
@@ -44,9 +46,9 @@ export default function TrilhaCarreira() {
       >
         <path
           d="M 100 220 C 220 220, 230 150, 350 150 C 470 150, 480 50, 600 50"
-          stroke="rgba(255, 255, 255, 0.4)"
-          strokeWidth="2.5"
-          strokeDasharray="6 6"
+          stroke="rgba(30, 58, 138, 0.35)"
+          strokeWidth="3.5"
+          strokeDasharray="8 8"
         />
       </svg>
 
@@ -61,31 +63,51 @@ export default function TrilhaCarreira() {
               top: `${(ponto.y / 280) * 100}%`,
             }}
           >
-            {/* Texto informativo */}
-            <div className={`absolute whitespace-nowrap text-white font-sans ${ponto.posicaoText}`}>
-              <span className="font-bold text-sm sm:text-base">{ponto.nivel}: </span>
-              <span className="text-xs sm:text-sm text-slate-200">{ponto.descricao}</span>
-            </div>
-
-            {/* Círculo com efeito de pulso/glow continuo */}
+            {/* Círculo com efeito de pulso suave */}
             <div className="relative flex items-center justify-center">
-              {/* Animação de expansão contínua */}
+              
+              {/* Bandeira fincada perfeitamente no topo do Sênior */}
+              {ponto.isAlvo && (
+                <div className="absolute -top-7 left-3 z-25 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]">
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="currentColor" 
+                    className="w-7 h-7 text-amber-500 origin-bottom"
+                  >
+                    <path fillRule="evenodd" d="M3 2.25a.75.75 0 0 1 .75.75v.54l1.838-.46a9.75 9.75 0 0 1 6.725.738l.108.054a8.25 8.25 0 0 0 5.584.652l4.01-1.145a.75.75 0 0 1 .933.728v12.49a.75.75 0 0 1-.54.72l-4.16 1.188a8.25 8.25 0 0 1-5.584-.652l-.108-.054a9.75 9.75 0 0 0-6.725-.738L3.75 16.5v4.5a.75.75 0 0 1-1.5 0v-18A.75.75 0 0 1 3 2.25Z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              )}
+
+              {/* Pulso suave adaptado para fundo claro */}
               <motion.span
-                animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+                animate={{ scale: [1, 2.2, 1], opacity: [0.3, 0, 0.3] }}
                 transition={{
-                  duration: 2.5,
+                  duration: 3,
                   repeat: Infinity,
-                  delay: index * 0.6,
+                  delay: index * 0.8,
                   ease: 'easeInOut',
                 }}
-                className={`absolute w-8 h-8 rounded-full ${ponto.corPulso}`}
+                className={`absolute w-8 h-8 rounded-full ${ponto.corPulso} filter blur-[1px]`}
               />
 
-              {/* Bolinha principal com gradiente e sombra 3D */}
+              {/* Bolinha principal */}
               <span
-                className={`relative w-8 h-8 rounded-full border-2 shadow-lg cursor-pointer transition-transform hover:scale-125 ${ponto.cor}`}
+                className={`relative w-8 h-8 rounded-full border-2 shadow-lg cursor-pointer transition-transform hover:scale-125 z-20 ${ponto.cor}`}
               />
             </div>
+
+            {/* Texto informativo com cores escuras para fundo claro */}
+            <div className={`absolute whitespace-nowrap font-sans ${ponto.posicaoText}`}>
+              <h4 className="font-display font-bold text-base text-blue-950 tracking-wide">
+                {ponto.nivel}
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 font-medium">
+                {ponto.descricao}
+              </p>
+            </div>
+
           </div>
         ))}
       </div>

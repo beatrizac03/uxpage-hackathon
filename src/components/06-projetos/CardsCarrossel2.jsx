@@ -4,38 +4,24 @@ import { motion } from 'framer-motion';
 const projetos = [
   {
     id: 1,
-    titulo: 'Neon Warden',
+    titulo: 'Sou Junior',
     autor: 'Mason Drake',
-    imagem: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop',
+    imagem: './src/components/06-projetos/soujunior.png',
     tags: ['Astro', 'React', 'Tailwind'],
   },
   {
     id: 2,
-    titulo: 'Quantum Specter',
+    titulo: 'Labs',
     autor: 'Ethan Vance',
-    imagem: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=600&auto=format&fit=crop',
+    imagem: './src/components/06-projetos/labs.png',
     tags: ['Node.js', 'TypeScript'],
   },
   {
     id: 3,
-    titulo: 'Cyber Phantom',
+    titulo: 'Talk',
     autor: 'Nova Sterling',
-    imagem: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=600&auto=format&fit=crop',
+    imagem: './src/components/06-projetos/talk.png',
     tags: ['Next.js', 'Tailwind'],
-  },
-  {
-    id: 4,
-    titulo: 'Void Sentinel',
-    autor: 'Kaelen Voss',
-    imagem: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop',
-    tags: ['Python', 'FastAPI'],
-  },
-  {
-    id: 5,
-    titulo: 'Infinity Cutter',
-    autor: 'Lyra Mercer',
-    imagem: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=600&auto=format&fit=crop',
-    tags: ['UI/UX', 'Figma'],
   },
 ];
 
@@ -87,14 +73,6 @@ export default function CardsCarrossel() {
                   <h3 className="text-white font-bold text-lg leading-tight">{projeto.titulo}</h3>
                   <p className="text-slate-400 text-xs font-medium">{projeto.autor}</p>
                 </div>
-                <button
-                  aria-label="Guardar projeto"
-                  className="w-8 h-8 rounded-full bg-slate-900/60 flex items-center justify-center text-sky-400 hover:bg-sky-500 hover:text-white transition-colors"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                  </svg>
-                </button>
               </div>
 
               {/* Imagem do Projeto */}

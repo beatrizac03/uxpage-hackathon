@@ -1,9 +1,9 @@
 ---
 // src/components/sections/Projetos.astro
-import CardsCarrossel from './CardsCarrossel.jsx';
+import CardsCarrossel from './CardsCarrossel.astro'
 ---
 
-<section id="projetos" class="py-16 md:py-24 bg-gradient-to-b from-[#1852c0] to-[#0a2366] text-white overflow-hidden">
+<section id="projetos" class="py-16 md:py-24  bg-[#081252] text-white overflow-hidden">
   <div class="mx-auto max-w-(--breakpoint-site) px-4 sm:px-6">
     
     <!-- Cabeçalho idêntico ao Layout do Figma -->
@@ -17,12 +17,6 @@ import CardsCarrossel from './CardsCarrossel.jsx';
         </p>
       </div>
 
-      <a 
-        href="#todos-projetos" 
-        class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white underline underline-offset-8 decoration-white/40 hover:decoration-amber-400 hover:text-amber-400 transition-colors shrink-0 self-start md:self-end"
-      >
-        PROJETOS DESTAQUES
-      </a>
     </div>
 
     <!-- Carrossel 3D em Leque (CodePen) -->

@@ -1,6 +1,5 @@
 ---
 // src/components/01-hero/Hero.astro
-import heroAvatar from './hero_avatar.gif';
 import { Image } from 'astro:assets';
 import ButtonCTA from '../common/ButtonCTA.jsx';
 ---
@@ -26,26 +25,27 @@ import ButtonCTA from '../common/ButtonCTA.jsx';
           href="https://apoia.se/soujunior" 
           showHeartIcon={true}
           target="_blank"
+          className="mt-5 lg:w-[80%]"
         />
 
       </div>
 
       <!-- Lado Direito: Container com o bichinho ampliado -->
       <div class="flex justify-center items-center min-h-[450px] sm:min-h-[550px] lg:min-h-[600px] relative w-full">
+        <!-- Mantemos a largura base do container idêntica à original -->
         <div class="relative w-full max-w-[650px] flex items-center justify-center">
           
-          <!-- Forma Amarela (500x500 e border-radius de 200px no Desktop, sem blur) -->
+          <!-- Forma Amarela intocada (tamanho original de 500px no desktop) -->
           <div 
             id="hero-yellow-shape" 
             class="absolute w-[320px] h-[320px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] rounded-[120px] sm:rounded-[160px] lg:rounded-[200px] bg-(--amarelo-destaque) opacity-90 transition-transform duration-75 ease-out will-change-transform z-0 pointer-events-none"
           ></div>
 
-          <!-- GIF / Avatar Ampliado (Sem cortes) -->
-          <Image 
-            src={heroAvatar} 
-            alt="Ilustração Hero SouJunior"
-            class="w-full h-auto max-h-[650px] object-contain relative z-10 drop-shadow-2xl scale-110"
-          />
+          <!-- Apenas o Vídeo/Bichinho ampliado com scale-135 ou scale-150 no desktop -->
+          <video autoplay loop muted playsinline class="w-full h-auto relative z-10 scale-125 lg:scale-140 drop-shadow-2xl">
+            <source src="/hero_avatar.webm" type="video/webm" />
+            O seu navegador não suporta vídeos HTML5.
+          </video>
           
         </div>
       </div>

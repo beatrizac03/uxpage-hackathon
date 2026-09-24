@@ -1,6 +1,7 @@
 ---
 // src/components/sections/Apoie.astro
 import HoverCard from './HoverCard.jsx';
+import Tag from '../common/Tag.astro';
 
 // Lista com os dados para os cards interativos da grid à esquerda
 const apoiadoresData = [
@@ -57,10 +58,11 @@ const apoiadoresData = [
       <!-- Coluna da Direita: Textos de Impacto -->
       <div class="flex flex-col justify-center space-y-6">
         <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-amber-300 underline underline-offset-4 decoration-amber-300">
-            CAUSA
-          </span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-amber-400 mt-3 leading-tight">
+          <Tag 
+            text="CAUSA" 
+            class="bg-[var(--azul-primaria)] text-[var(--branco)]" 
+            />
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-[var(--amarelo-destaque)]   mt-3 leading-tight">
             Por que apoiar a SouJunior?
           </h2>
         </div>

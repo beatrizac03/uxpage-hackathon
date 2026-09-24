@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .animate-marquee {
   animation: marquee 50s linear infinite;
 }
@@ -20,6 +24,9 @@
   --branco: #ffffff;
   --gradient-1: linear-gradient(180deg, #046ad099 0%, #0a1662 100%);
   --gradient-2: linear-gradient(0deg, #046ad099 0%, #0a1662 100%);
+  --gradient-3: linear-gradient(0deg, #081252 0%, #081126 100%);
+  --gradient-4: linear-gradient(180deg, #22D3EE 0%, #3C7EF9 100%);
+    --gradient-5: linear-gradient(90deg, #046ad099 0%, #0a1662 100%);
 
   /* Fontes */
   /* Substitui a fonte padrão (font-sans) do Tailwind pela Funnel Sans */
@@ -53,6 +60,10 @@
     --amarelo-destaque: #facc15;
     --gradient-1: linear-gradient(180deg, #046ad099 0%, #0a1662 100%);
     --gradient-cta: linear-gradient(0deg, #FFFFFF 0%, #FACC15 100%);
+    --gradient-3: linear-gradient(180deg, #081126 0%, #081126 100%);
+    --gradient-4: linear-gradient(180deg, #22D3EE 0%, #3C7EF9 100%);
+    --gradient-5: linear-gradient(270deg, #046ad099 0%, #0a1662 100%);
+    --gradient-6: linear-gradient(180deg, #0a1662 0%, #046ad099 80%);
   }
 
   body {
